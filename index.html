@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Website Coming Soon Page Using</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <header>
+    <div class="logo">
+      <img src="/images/logo.png" alt="">
+    </div>
+  </header>
+  <main>
+    <div class="container">
+      <p>Website is Under Maintenance</p>
+      <h1>We're <span>Launching</span> soon</h1>
+      <div class="timeDistance">
+        <div class="row">
+          <p id="day">00</p>
+          <span>Days</span>
+        </div>
+        <div class="row">
+          <p id="hrs">00</p>
+          <span>Hours</span>
+        </div>
+        <div class="row">
+          <p id="min">00</p>
+          <span>Minutes</span>
+        </div>
+        <div class="row">
+          <p id="sec">00</p>
+          <span>Seconds</span>
+        </div>
+      </div>
+      <button>Learn More <img src="/images/triangle.png" alt=""> </button>
+    </div>
+    <img src="/images/rocket.png" alt="" id="rocketImg">
+  </main>
+
+
+
+  <script>
+
+    let day = document.querySelector("#day");
+    let hrs = document.querySelector("#hrs");
+    let min = document.querySelector("#min");
+    let sec = document.querySelector("#sec");
+
+    let countDate = new Date("Jan 28,2024 00:00:00").getTime();
+
+    let x = setInterval(() => {
+      let now = new Date().getTime();
+
+      let distance = countDate - now;
+
+      let days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      let seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+      day.innerHTML = days;
+      hrs.innerHTML = hours;
+      min.innerHTML = minutes;
+      sec.innerHTML = seconds;
+
+
+      if (distance < 0) {
+        clearInterval(x)
+      }
+
+
+
+    })
+
+
+
+
+
+  </script>
+
+</body>
+
+</html>
